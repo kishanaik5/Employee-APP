@@ -1,6 +1,6 @@
 {
     "name": "Browser App",
-    "short_name": "BrowserApp",
+    "short_name": "Silcarb Employee",
     "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",
