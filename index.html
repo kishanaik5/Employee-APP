@@ -4,14 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=1280, initial-scale=1.0">
     <meta name="theme-color" content="#000000">
-    
-    <title>Browser App</title>
-
-    <!-- Add the PWA manifest -->
+    <title>Employee App</title>
     <link rel="manifest" href="manifest.json">
-    
-
-    <!-- Register Service Worker -->
+    <link rel="icon" href="icon-192.png" sizes="192x192">
+    <link rel="icon" href="icon-512.png" sizes="512x512">
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./service-worker.js')
@@ -21,27 +17,8 @@
     </script>
 </head>
 <body>
-    <h1>Welcome to Browser App</h1>
-    <p>Click the button below to launch.</p>
-    
-    <!-- Launch Button -->
+    <h1>Welcome to Employee App</h1>
     <button id="launchApp">Launch App</button>
-
-    <script>
-        document.getElementById('launchApp').addEventListener('click', function() {
-            window.location.href = "https://productivity-management.onrender.com";
-        });
-
-        // Ensure Desktop Mode
-        let metaViewport = document.querySelector('meta[name="viewport"]');
-        if (metaViewport) {
-            metaViewport.setAttribute('content', 'width=1280, initial-scale=1.0');
-        }
-
-        // Trick site into Desktop Mode
-        Object.defineProperty(navigator, 'userAgent', {
-            get: function () { return navigator.userAgent.replace("Android", "Windows"); }
-        });
-    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>
