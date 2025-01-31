@@ -1,7 +1,7 @@
 {
     "name": "Browser App",
     "short_name": "BrowserApp",
-    "start_url": "https://productivity-management.onrender.com",
+    "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
