@@ -9,17 +9,36 @@
 
     <!-- Add the PWA manifest -->
     <link rel="manifest" href="manifest.json">
-    
-    <!-- Register Service Worker -->
+
+    <!-- Ensure service worker is registered for PWA support -->
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
+            navigator.serviceWorker.register('./service-worker.js')
                 .then(reg => console.log("Service Worker Registered"))
                 .catch(err => console.log("Service Worker Error", err));
         }
     </script>
+
+    <!-- Redirect and enforce desktop mode -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Redirect to the website
+            window.location.href = "https://productivity-management.onrender.com";
+
+            // Ensure desktop mode
+            let metaViewport = document.querySelector('meta[name="viewport"]');
+            if (metaViewport) {
+                metaViewport.setAttribute('content', 'width=1280, initial-scale=1.0');
+            }
+
+            // Modify user agent to trick site into desktop mode
+            Object.defineProperty(navigator, 'userAgent', {
+                get: function () { return navigator.userAgent.replace("Android", "Windows"); }
+            });
+        });
+    </script>
 </head>
 <body>
-    <h1>Loading...</h1>
+    <h1>Redirecting...</h1>
 </body>
 </html>
