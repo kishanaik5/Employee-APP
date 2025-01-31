@@ -1,19 +1,22 @@
-const CACHE_NAME = "browser-app-cache-v1";
-const urlsToCache = [
-    "/",
-    "manifest.json"
-];
-
-self.addEventListener("install", function(event) {
+self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
+        caches.open('employee-app-cache').then(cache => {
+            return cache.addAll([
+                './',
+                './index.html',
+                './manifest.json',
+                './icon-192.png',
+                './icon-512.png',
+                './js/index.js'
+            ]);
+        })
     );
 });
 
-self.addEventListener("fetch", function(event) {
+self.addEventListener('fetch', event => {
     event.respondWith(
-        caches.match(event.request)
-            .then(response => response || fetch(event.request))
+        caches.match(event.request).then(response => {
+            return response || fetch(event.request);
+        })
     );
 });
