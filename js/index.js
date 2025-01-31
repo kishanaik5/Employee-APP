@@ -1,4 +1,3 @@
-document.getElementById('launchApp').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
     window.location.href = "https://productivity-management.onrender.com";
 });
-
